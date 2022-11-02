@@ -23,7 +23,7 @@ resource "aws_security_group" "Nexus_sg" {
         description = "Nexus_ports"
         from_port = 8081
         to_port = 8081
-        protocol = tcp
+        protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0:0"]
         ipv6_cidr_blocks = ["0.0.0.0/0:0"]
     }
