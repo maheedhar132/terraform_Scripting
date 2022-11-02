@@ -19,14 +19,12 @@ resource "aws_instance" "nexus_repository" {
 }
 
 resource "aws_security_group" "Nexus_sg" {
-    ingress = [ {
-      cidr_blocks = [ "0.0.0.0/0" ]
-      description = "nexus_service port"
-      from_port = 8081
-      ipv6_cidr_blocks = [ "0.0.0.0/0" ]
-      protocol = "tcp"
-      self = false
-      to_port = 8081
-    } ]
-  
+    ingress = {
+        description = "Nexus_ports"
+        from_port = 8081
+        to_port = 8081
+        protocol = tcp
+        cidr_blocks = ["0.0.0.0/0:0"]
+        ipv6_cidr_blocks = ["0.0.0.0/0:0"]
+    }
 }
